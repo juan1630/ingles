@@ -1,0 +1,32 @@
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.title{
+    margin-top: 25px;
+}
+.img{
+    max-width:15%;
+
+}
+.tecnm{
+    margin-top: 15px;
+}
+.itc{
+    max-width:10%;
+}
+
+.navbar{
+    border:solid goldenrod 4px;
+}
+
+@media(max-width:600px){
+    .itc, .tecnm{
+        display: none;
+    }
+    .navbar{
+        border:none;
+    }
+}

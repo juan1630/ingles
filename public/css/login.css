@@ -1,0 +1,32 @@
+.form-control{
+    margin-top: 10px;
+}
+.btn{
+    margin-top: 20px;
+    margin-left: 50px;
+}
+.form-control{
+    margin-top: 20px;
+}
+.title{
+    margin-top:2%;
+   text-align: center;
+}
+.link{
+    margin-left: auto;
+    margin-right: auto;
+}
+@media (max-width: 600px){
+
+    .form-group{
+        width: 100%;
+    }
+    
+    .btn{
+        display: block;
+        width: 100%;
+        margin-left: 0;
+    }
+
+
+}

@@ -1,0 +1,46 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css', integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO', crossorigin='anonymous')
+    link(rel='stylesheet', href='./css/index.css')
+    link(rel='stylesheet', href='./css/form.css')
+    title Registro
+  body
+    nav.navbar.navbar
+      img.img.tecnm(src='./Logo-TecNM.png', alt='img del Tec')
+      img.img.tecnm.itc(src='./itcuautla.png', alt='')
+      ul.nav.justify-content-end
+        li.nav-item
+          a.nav-link.active(href='/') Inicio
+        li.nav-item
+          a.nav-link.active(href='form') Registro
+        li.nav-item
+          a.nav-link.active(href='/curso') Curso
+    section
+      article
+        header
+          h1.center
+            | Registrate para darle seguimiento a tu curso de inglés
+        .container
+          .row
+            .col-sm-12.col-md-10.offset-md-1
+              .form-group
+                form.form(action='/crear', method='POST', name='formulario')
+                  .form-group
+                    input#name.form-control(type='text', name='name', placeholder='Ingresa tu Nombre', required='')
+                    input#apellido.form-control(type='text', name='apellido', placeholder='Ingresa tus apellidos', required='')
+                    input#num.form-control(type='text', name='num', placeholder='Ingresa tu número de Control', required='', maxlength="6" minlength="6")
+                  .form-group
+                    input#carrera.form-control(type='text', name='carrera', placeholder='Ingresa tu carrera', required='')
+                    input#semestre.form-control(type='number',min="1", name='semestre', placeholder='Semestre', required='')
+                    input#email.form-control(type='email', name='email', placeholder='Agrega tu email', required='')
+                  .form-group
+                    input#pass.form-control(type='password', name='pass', placeholder='Agrega tu contraseña', required='')
+                  .form-group.group-btn
+                    input#btn.btn.btn-info(type='submit', value='Registrar')
+                    a(href="/login").link Inicia sesión
+    footer
+      | Tel 3084005 jejeje
