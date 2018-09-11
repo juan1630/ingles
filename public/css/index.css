@@ -13,9 +13,10 @@
 }
 .tecnm{
     margin-top: 15px;
+    max-width: 30%;
 }
 .itc{
-    max-width:10%;
+    max-width:11%;
 }
 
 .navbar{

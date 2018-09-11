@@ -9,6 +9,7 @@ const session =require('express-session');
 const app = express();
 
 const  search  = require('./Routes/searchUser');
+const userF = require('./Routes/searchUser');
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:false}));
@@ -110,6 +111,7 @@ app.post("/login", (req, res)=>{
 
 app.use("/admin",middleware)
 app.use("/admin", search );
+app.use("/admin", userF);
 
 
 app.listen(PORT, ()=>{

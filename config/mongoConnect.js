@@ -11,14 +11,14 @@
 /**
  * ========================
  * 
- * CONFIG DE CONEXIÓN
+ * CONFIG PUERTO
  * 
  * ========================
  */
 
  const PORT = process.env.PORT || 3001;
 
-module.exports = {
-    URI, 
-    PORT
-}
+    module.exports = {
+        URI, 
+        PORT
+    }
