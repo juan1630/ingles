@@ -23,7 +23,7 @@ html(lang='es')
       h2.center.subtitle Encuentra a un Alumno
       .row
         .col-sm-12.col-md-4.offset-md-4
-          form(action="/admin/user/:_id", method="POST")
+          form(action="/admin/user/:_id", method="GET")
             input.form-control(type="text", name="usuario", placeholder="Ingresa el número de control del alumno")
             input.btn(type="submit", value="Enviar") 
 

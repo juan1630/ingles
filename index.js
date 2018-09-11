@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const User = require('./models/user').User;
 const middleware = require('./middleware/login');
-const {  } = require('./config/mongoConnect')
+const { PORT } = require('./config/mongoConnect')
 const session =require('express-session');
 
 
@@ -112,6 +112,6 @@ app.use("/admin",middleware)
 app.use("/admin", search );
 
 
-app.listen(3000, ()=>{
-    console.log("Servidor en el puerto 3000");
+app.listen(PORT, ()=>{
+    console.log("Servidor en el puerto"+PORT);
 })

@@ -18,6 +18,7 @@ router.route("/user/:_id")
             console.log("Buscando ---->")
             console.log(data);
         })
+        res.redirect('/admin/user/'+data.id);
     })
     .put((req, res)=>{
 
