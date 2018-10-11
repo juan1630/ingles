@@ -1,0 +1,9 @@
+extends nav-user.pug
+block nav
+
+    section
+    .row
+        .col-sm-12.col-md-4.offset-md-4
+          form(action="admin/semestre",method="GET")
+            input.form-control(type="text",name="semestre",placeholder="Buscar por semestre")
+            input.btn(type="submit", value="Buscar")

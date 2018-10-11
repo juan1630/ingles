@@ -1,0 +1,15 @@
+extends nav-user.pug
+block nav
+    link(rel="stylesheet", href="css/adminEdit.css")
+    section.container
+        .row
+            .col.col-md-6.offset-md-3
+                form(action=`edit/${id}?_method=PUT`,method="POST", enctype="application/x-www-form-urlencoded")
+                    .form-group
+                        label(for="nombre") Nombre
+                        input.form-control(type="text", id="nombre",name="nombre",value=nombre)
+                        input.form-control(type="text", name="apellido",value=apellido)
+                        input.form-control(type="number", name="semestre",value=semestre)
+                        input.form-control(type="text", name="correo",value=correo)
+                        input.form-control(type="text", name="nivel",value=nivel)
+                        input.btn.btn-info(type="submit", value="Actualizar")

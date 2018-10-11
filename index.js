@@ -4,7 +4,7 @@ const User = require('./models/user').User;
 const middleware = require('./middleware/login');
 const { PORT } = require('./config/mongoConnect')
 const session =require('express-session');
-
+const methodOverride = require('method-override');
 
 const app = express();
 
@@ -14,7 +14,8 @@ const userF = require('./Routes/searchUser');
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
-
+app.use(methodOverride("_method"))
+app.use(methodOverride('X-HTTP-Method-Override'));
 
 app.use(session({
     secret:"cookieSecrete",
@@ -75,28 +76,17 @@ app.post("/login", (req, res)=>{
     let contra = req.body.password;
 
     User.findOne({correo:correoE, pass:contra}, (error, user) => {
-            if(error){
-                 res.json({
-                  message: error
-               });
-            }
-           // console.log(user.numeroControl)
-           //console.log(user.nombre);
-           req.session.user_id=user._id;
-           req.session.userName=user.nombre;
+            if(error) res.redirect('login')
 
-
-          // console.log(req.session.user._id);
-          //console.log(req.session.userName);
-
+            req.session.user_id=user._id;
+            req.session.userName=user.nombre;
+            if(req.session.user_id===null) res.redirect('login');
            if(!user){
-               console.log("Usuario no valido");
-              
               res.render("login");
            }
 
            if(user.role === "usuario" ){
-               console.log("Usuario");
+              // console.log("Usuario");
                 res.render("user")
            }
 
@@ -112,6 +102,7 @@ app.post("/login", (req, res)=>{
 app.use("/admin",middleware)
 app.use("/admin", search );
 app.use("/admin", userF);
+
 
 
 app.listen(PORT, ()=>{

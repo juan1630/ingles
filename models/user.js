@@ -20,8 +20,8 @@ const user = {
         required:true
     },
     numeroControl:{
-    type:Number,
-    required:true
+        type:Number,
+        required:true
     },
     carrera:{
         type:String,
@@ -39,12 +39,12 @@ const user = {
         required:true
     },
     pago:{
-    type:Boolean,
-    default:false
-    },
-    nivel:{
         type:Boolean,
         default:false
+    },
+    nivel:{
+        type:Number,
+        default:1
     },
     role:{
         type:String,

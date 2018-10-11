@@ -14,7 +14,7 @@ module.exports = (req, res, next)=>{
                 res.locals = {
                     user
                 }
-                console.log(res.locals.user);
+               // console.log(res.locals.user);
         })
 
         next();

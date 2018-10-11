@@ -1,0 +1,10 @@
+extends nav-user.pug
+block nav
+
+    section
+        .row
+            .col-sm-12.col-md-4.offset-md-4
+                form(action="admin/carrera", method="GET")
+                    input.form-control(type="text",name="carrera" placeholder="Buscar por carrera")
+                    input.btn(type="submit",value="buscar")
+        
