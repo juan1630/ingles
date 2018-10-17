@@ -12,3 +12,11 @@ input[type="submit"]{
 .subtitle{
     margin-top:30px;
 }
+
+.tecnm{
+    margin-top: 15px;
+    max-width: 30%;
+}
+.itc{
+    max-width:11%;
+}

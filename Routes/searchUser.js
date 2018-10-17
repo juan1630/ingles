@@ -34,11 +34,13 @@ router.put("/edit/:id", ((req,res)=>{
 
 }))
 
-
+/****
+ * Render de la vista
+ * 
+ */
 router.get("/", (req, res)=>{
     res.render("admin/admin");
 });
-
 
 router.route("/edit")
 .post((req, res)=>{
@@ -69,17 +71,56 @@ router.route("/edit")
 })
 
 
-
-
 router.route('/carrera')
 .get((req,res)=>{
     res.render('admin/carrera');
 })
+
+router.route('/carrera/find')
+.post((req, res)=>{
+  
+    console.log(req.body.carrera);
+
+    let carr =req.body.carrera;
+
+    User.find({carrera:carr}, (error, docs)=>{
+        if(error) throw new Error
+
+       if(docs) {
+         //  console.log(docs)
+           const user = {
+               nombre:docs
+               
+           }
+           // console.log(user)
+                       
+           res.render('admin/showCarrera',{data:user})
+       }
+    })
+
+})
+
 router.route('/semestre')
 .get((req, res)=>{
     res.render('admin/semestre');
 })
 
+router.route('/semestre/find')
+.post((req, res)=>{
+    const semestre = req.body.semestre;
+
+    User.find({"semestre": semestre}, (error, docs)=>{
+        if(error) res.render('admin/admin')
+
+        if(docs){
+            const users = {
+                nombre:docs
+            }
+            res.render('admin/showSemestre', { data:users })
+        }
+    })
+
+})
 /***
  * RENDER DEL FORMULARIO
  * **/

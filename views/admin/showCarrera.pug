@@ -1,0 +1,42 @@
+doctype html
+html(lang='es')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    title Inglés
+    link(rel="stylesheet", href="./css/admin.css")
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css', integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO', crossorigin='anonymous')
+  body
+    nav.navbar.navbar
+      img#num.img.tecnm(src='./LOGO-TecNM.png', alt='img del Tec')
+      img.img.tecnm.itc(src='itcuautla.png', alt='')
+      ul.nav.justify-content-end
+        li.nav-item
+          a.nav-link.active(href='/admin') Inicio
+        li.nav-item
+          a.nav-link.active(href='/admin/carrera') Por carrera
+        li.nav-item
+          a.nav-link.active(href='/admin/semestre') Por semestre
+        li.nav-item
+          a.nav-link.active(href='curso') Curso
+    block nav
+
+    section.container
+        .row
+            .col-sm12.col-md-10
+                table.table
+                    thead
+                        tr 
+                            th Nombre
+                            th Carrera
+                            th Semestre
+                            th Numero de control
+                    tbody
+                      each user in data 
+                        for docs in user
+                             tr
+                                td #{docs.nombre}
+                                td #{docs.carrera}
+                                td= `${docs.semestre}`
+                                td #{docs.numeroControl}

@@ -1,10 +1,13 @@
 extends nav-user.pug
 block nav
-
     section
         .row
             .col-sm-12.col-md-4.offset-md-4
-                form(action="admin/carrera", method="GET")
-                    input.form-control(type="text",name="carrera" placeholder="Buscar por carrera")
-                    input.btn(type="submit",value="buscar")
-        
+                .form-group
+                    form(action="carrera/find", method="POST")
+                        input.form-control(type="text",name="carrera" placeholder="Buscar por carrera")  
+                        input.btn.btn-success.btn-responsive(type="submit",value="buscar")
+    section.container
+        .row
+            .col-sm-12.col-md-5
+                p #{data} 

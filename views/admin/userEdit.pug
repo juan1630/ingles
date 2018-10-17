@@ -8,8 +8,17 @@ block nav
                     .form-group
                         label(for="nombre") Nombre
                         input.form-control(type="text", id="nombre",name="nombre",value=nombre)
-                        input.form-control(type="text", name="apellido",value=apellido)
-                        input.form-control(type="number", name="semestre",value=semestre)
-                        input.form-control(type="text", name="correo",value=correo)
-                        input.form-control(type="text", name="nivel",value=nivel)
+                    .form-group   
+                        label(for="apellido") Apellidos
+                        input.form-control(type="text", id="apellido",name="apellido",value=apellido)
+                    .form-group     
+                        label(for="semestre") Semestre
+                        input.form-control(type="number", name="semestre",id="semestre",value=semestre)
+                    .form-group 
+                        label(for="correo") Correo
+                        input.form-control(type="text",id="correo" ,name="correo",value=correo)
+                    .form-group 
+                        label(for="nivel") Nivel
+                        input.form-control(type="text", id="nivel",name="nivel",value=nivel)
+                    .form-group
                         input.btn.btn-info(type="submit", value="Actualizar")
