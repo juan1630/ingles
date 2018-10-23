@@ -1,17 +1,21 @@
 const express = require('express');
 const bodyParser = require('body-parser')
+const path = require('path');
 const User = require('./models/user').User;
+const auth = require('./middleware/userMiddleware');
 const middleware = require('./middleware/login');
 const { PORT } = require('./config/mongoConnect')
 const session =require('express-session');
 const methodOverride = require('method-override');
 
+
 const app = express();
 
 const  search  = require('./Routes/searchUser');
-const userF = require('./Routes/searchUser');
+const user = require ('./Routes/user');
 
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "/public/")));
+
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 app.use(methodOverride("_method"))
@@ -76,21 +80,22 @@ app.post("/login", (req, res)=>{
     let contra = req.body.password;
 
     User.findOne({correo:correoE, pass:contra}, (error, user) => {
-            if(error) res.redirect('login')
-
+            if(error) res.redirect('/login')
+       
             req.session.user_id=user._id;
             req.session.userName=user.nombre;
-            if(req.session.user_id===null) res.redirect('login');
-           if(!user){
-              res.render("login");
-           }
-
+            req.session.role=user.role
+       
+                if(user===null){
+                    res.redirect('/login');
+                }
+           
+                if(error) console.log(error)
+           
            if(user.role === "usuario" ){
               // console.log("Usuario");
-                res.render("user")
-           }
-
-           if(user.role === "admin"){
+                res.redirect("/user")
+           }else if(user.role === "admin"){
               // console.log("Administrador");
                 res.redirect("/admin")
               
@@ -99,12 +104,16 @@ app.post("/login", (req, res)=>{
 });
 
 
-app.use("/admin",middleware)
+app.use("/admin",middleware);
 app.use("/admin", search );
-app.use("/admin", userF);
+app.use("/user", auth);
+app.use("/user", user);
 
+/***
+ * SERVIDOR 
+ */
 
 
 app.listen(PORT, ()=>{
-    console.log("Servidor en el puerto"+PORT);
+    console.log(`Servidor en el puerto:  ${PORT}`);
 })

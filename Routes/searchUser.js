@@ -125,10 +125,10 @@ router.route('/semestre/find')
  * RENDER DEL FORMULARIO
  * **/
 
- router.route("/user")
- .get((req, res)=>{
-
+ router.get("/grupo",(req, res)=>{
+     res.render('admin/grupo')
  })
+
 .post((req,res)=>{
     let num = req.body.numero;
       User.findOne({ numeroControl:num }, (erro,data)=>{
@@ -140,10 +140,5 @@ router.route('/semestre/find')
            res.redirect(`edit/${id}`);
        } )
 })
-/***
- * 
- * 
- * ***/
-
 
 module.exports = router;

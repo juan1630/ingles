@@ -23,6 +23,44 @@
     border:solid goldenrod 4px;
 }
 
+i{
+    margin-left: 8px;
+    font-size: 1.8em;
+}
+td{
+    text-align: center;
+}
+.fa-whatsapp{
+    color:green;
+}
+.fas.fa-at{
+    color:#1E48F2;
+}
+i.far.fa-clock {
+    font-size: 1.2em;
+   padding-bottom: 20px;
+   padding-left: 10px;
+}
+.card-title{
+    margin-bottom: 1em;
+}
+.parrafo{
+    padding-bottom: 30px;
+}
+
+.footer{
+    margin-top: 50px;
+}
+.card-phone{
+    text-align: center;
+}
+.phone{
+    padding-bottom: 57px;
+}
+
+.container{
+    margin-top: 50px;
+}
 @media(max-width:600px){
     .itc, .tecnm{
         display: none;

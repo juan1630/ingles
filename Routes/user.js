@@ -1,8 +1,20 @@
-const express = require('express')
+const express = require('express');
+const bodyParser = require('body-parser');
+const expressSession = require('express-session');
+const app = express();
 
-const router = express.Router;
+app.use(bodyParser.json());
+app.use(expressSession({
+    secret:"cookieSecretss",
+    saveUninitialized: true,
+    resave: true
+}));
 
-router.rote('/user')
-    .post((request, response)=>{
-        response.render('/admin/admin')
-    })
+const router = express.Router();
+
+router.route("/")
+.get((req, res)=>{
+    res.render("user/user");
+})
+
+module.exports = router;

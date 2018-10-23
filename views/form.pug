@@ -5,13 +5,14 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     meta(http-equiv='X-UA-Compatible', content='ie=edge')
     link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css', integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO', crossorigin='anonymous')
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     link(rel='stylesheet', href='./css/index.css')
     link(rel='stylesheet', href='./css/form.css')
     title Registro
   body
     nav.navbar.navbar
-      img.img.tecnm(src='./LOGO-TecNM.png', alt='img del Tec')
-      img.img.tecnm.itc(src='./itcuautla.png', alt='')
+      img.img.tecnm(src='./image/LOGO-TecNM.png', alt='img del Tec')
+      img.img.tecnm.itc(src='./image/itcuautla.png', alt='')
       ul.nav.justify-content-end
         li.nav-item
           a.nav-link.active(href='/') Inicio
@@ -42,5 +43,24 @@ html(lang='en')
                   .form-group.group-btn
                     input#btn.btn.btn-info(type='submit', value='Registrar')
                     a(href="/login").link Inicia sesión
-    footer
-      | Tel 3084005 jejeje
+    footer.footer
+      .container
+        .row
+          .col-sm-12.col-md-4
+            .card
+              .card-body
+                h4.card-title Horario de atención
+                p.card-text De lunes a viernes de 10:00 a 15:00 y de 16:00 a 18:00 hrs
+                p Sábado de 9:00 a 13:00 hrs
+          .col-sm-12.col-md-4
+            .card
+              .card-body
+                h4.card-title.card-phone Número de contacto
+                p.card-phone.phone  Tel. 7351282454 
+                  i.fab.fa-whatsapp
+          .col-sm-12.col-md-4
+            .card
+              .card-body
+                h4.card-title Correo electronico        
+                p.parrafo Correo: coord.ingles@itcuautla.edu.mx
+                 

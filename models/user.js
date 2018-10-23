@@ -49,6 +49,10 @@ const user = {
     role:{
         type:String,
         default:"usuario"
+    },
+    status:{
+        type:Boolean,
+        default:false
     }
 }
 
