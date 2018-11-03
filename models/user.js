@@ -53,6 +53,9 @@ const user = {
     status:{
         type:Boolean,
         default:false
+    },
+    description:{
+        type:String
     }
 }
 

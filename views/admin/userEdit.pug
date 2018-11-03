@@ -39,4 +39,7 @@ html(lang='es')
                         label(for="nivel") Nivel
                         input.form-control(type="text", id="nivel",name="nivel",value=nivel)
                     .form-group
+                        label(for="des") Agrega una descripcion del alumno
+                        textarea.form-control#des(rows='4', cols='50', name="description")= description 
+                    .form-group
                         input.btn.btn-info(type="submit", value="Actualizar")

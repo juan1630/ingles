@@ -49,12 +49,13 @@ router.route("/edit")
     User.findOne({numeroControl:id},(error, user)=>{
         if(error) console.log(error)
 
-       const nombre=user.nombre;
-       const apellido=user.apellido;
-       const semestre = user.semestre;
-       const correo =user.correo;
-       const nivel = user.nivel;
-      const id =user._id;
+        const nombre=user.nombre;
+        const apellido=user.apellido;
+        const semestre = user.semestre;
+         const correo =user.correo;
+        const nivel = user.nivel;
+        const id =user._id;
+        const description = user.description;
 
         res.render('admin/userEdit', 
             { nombre,
@@ -62,7 +63,8 @@ router.route("/edit")
             semestre,
             correo,
             nivel,
-            id
+            id,
+            description
         });
 
     })
@@ -76,6 +78,10 @@ router.route('/carrera')
     res.render('admin/carrera');
 })
 
+/****
+ * RENDER DE LA CARRERA
+ * 
+ */
 router.route('/carrera/find')
 .post((req, res)=>{
   
@@ -103,8 +109,11 @@ router.route('/carrera/find')
 router.route('/semestre')
 .get((req, res)=>{
     res.render('admin/semestre');
-})
-
+});
+/***
+ * RENDER DEL SEMESTRE
+ * 
+ */
 router.route('/semestre/find')
 .post((req, res)=>{
     const semestre = req.body.semestre;
