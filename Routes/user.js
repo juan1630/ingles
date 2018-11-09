@@ -15,8 +15,8 @@ const router = express.Router();
 
 
 router.get("/",(req, res, next)=>{
-    console.log("Render del Inicio")
-    res.render("user/user");  
+    nombre=req.session.nombre;
+    res.render("user/user",{nombre});  
 });
 
 

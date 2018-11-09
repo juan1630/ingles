@@ -22,9 +22,6 @@ const teacher= {
     pass:{
         type:String,
         required:true
-    },nivel:{
-        type:Number,
-        default:1
     },
     role:{
         type:String,
