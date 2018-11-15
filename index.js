@@ -5,7 +5,8 @@ const User = require('./models/user').User;
 const auth = require('./middleware/userMiddleware');
 const middleware = require('./middleware/login');
 const auth_2 = require('./middleware/auth');
-const { PORT } = require('./config/mongoConnect')
+const { PORT } = require('./config/mongoConnect');
+const {generatePdf} = require('./PdfService/index');
 const session =require('express-session');
 const methodOverride = require('method-override');
 
@@ -108,6 +109,19 @@ app.post("/login", (req, res)=>{
         })
 });
 
+
+
+app.get("/pdf", (req, res)=>{
+    let data = {
+       id: req.session._id,
+       nombre:req.session.nombre
+    }
+   
+    generatePdf(data);
+    res.redirect(`${data.id}.pdf`);
+
+
+})
 
 app.use("/admin",middleware);
 app.use("/admin", search );

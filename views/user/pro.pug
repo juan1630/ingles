@@ -21,10 +21,12 @@ html(lang='es')
         li.nav-item
           a.nav-link.active(href='/cerrar') Cerrar Sesión
     section.container
-      h3= `${nombre} este es tu progreso: ${nivel}`
+      h3= `${nombre} estas en el nivel: ${nivel}`
       .row
         .col-sm-12.col-md-10.offset-1
           .cont
+            if nivel == 0
+              .nivel-1 Aún no tienes nivel
             if nivel == 1
               .nivel-1.content Nivel 1
             else if nivel == 2

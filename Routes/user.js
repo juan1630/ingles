@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const expressSession = require('express-session');
-//const User = require('../models/user').User;
+
+
 const app = express();
 
 app.use(bodyParser.json());

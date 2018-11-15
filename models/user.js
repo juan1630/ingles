@@ -44,7 +44,7 @@ const user = {
     },
     nivel:{
         type:Number,
-        default:1
+        default:0
     },
     role:{
         type:String,
