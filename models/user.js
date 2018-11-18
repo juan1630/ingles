@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const { URI } = require('../config/mongoConnect');
+const {URI} = require('../config/mongoConnect')
+//const config = require('../config/mongoConnect');
 
 mongoose.set('useCreateIndex', true);
+
 mongoose.connect(URI, { useNewUrlParser: true },(error)=>{
     if(error){
         console.log(error);
