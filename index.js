@@ -66,10 +66,9 @@ app.post('/crear', (req ,res)=>{
     const usuario = new User( user );
         //console.log(usuario);
         usuario.save((error)=>{
+          
             if(error){
-            return res.json({
-                error
-            });
+                res.redirect("/login");
             }else{
                 res.render('user/user');
             }
@@ -94,6 +93,7 @@ app.post("/login", (req, res)=>{
                 req.session._id=user._id;
                 req.session.nombre= user.nombre;
                 req.session.role=user.role;
+                req.session.nivel=user.nivel;
                 
                 res.redirect("/user");
 
@@ -113,19 +113,24 @@ app.post("/login", (req, res)=>{
 
 app.get("/pdf", (req, res)=>{
 
-    console.log(req.session.id);
+    console.log(req.session);
     if (req.session.nombre == null || req.session.nombre == undefined){
         res.redirect("/login");
     }
 
         let data = {
             id: req.session._id,
-            nombre:req.session.nombre
+            nombre:req.session.nombre,
+            nivel:req.session.nivel
          }
         
-         generatePdf(data);
-         res.redirect(`${data.id}.pdf`);
+        if( generatePdf(data) == false){
+            res.redirect("/login");
+        }else{
+            res.redirect(`${data.id}.pdf`);
      
+        }
+         
 
 
 })

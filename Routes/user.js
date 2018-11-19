@@ -52,7 +52,10 @@ router.get("/progreso",(req, res, next)=>{
 })
 
 
-
+router.get("/cerrar", (req, res)=>{
+    req.session.destroy();
+    res.redirect("/login");
+})
 
 
 

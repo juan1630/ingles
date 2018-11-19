@@ -150,4 +150,9 @@ router.route('/semestre/find')
        } )
 })
 
+router.get('/cerrar', (req, res)=>{
+    req.session.destroy();
+    res.redirect("/login");
+})
+
 module.exports = router;

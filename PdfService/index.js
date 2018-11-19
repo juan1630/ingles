@@ -6,8 +6,11 @@ const PDF = require('../models/pdfs');
 
  const generatePdf = (data)=>{
 
+    if(data.id == undefined){
+        return false;
+    }
     const doc = new pdfKit();
-    doc.pipe(fs.createWriteStream(`Routes/pdf/${data.id}.pdf`));
+    doc.pipe(fs.createWriteStream(`pdf/${data.id}.pdf`));
 
     doc.text(`Se otorga el presente RECONOCIMIENTO al alumno: ${data.nombre}`,{width:410,aling:"center"});
     doc.end();
@@ -17,7 +20,9 @@ const PDF = require('../models/pdfs');
     }
     const pdf = new PDF(datos)
     pdf.save((error)=>{
-        console.log(error)
+       if(error){
+           console.log(error)
+       }
     })
 
 }
