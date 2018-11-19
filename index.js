@@ -71,7 +71,7 @@ app.post('/crear', (req ,res)=>{
                 error
             });
             }else{
-                res.render('user');
+                res.render('user/user');
             }
         })
 })
