@@ -22,11 +22,8 @@ router.put("/edit/:id", ((req,res)=>{
     const body =req.body;
 
         User.findByIdAndUpdate(id,body, (error, docs)=>{
-        if(error) res.status(200).send({
-            message:{
-                error
-            }
-        }) (error)
+        if(error) res.redirect("/login");
+        
         if(docs) res.redirect('/admin')
         
      })
