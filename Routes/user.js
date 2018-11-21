@@ -22,8 +22,7 @@ router.get("/",(req, res, next)=>{
 
 
 router.get("/progreso",(req, res, next)=>{ 
-    console.log("Render de la vista progreso"); 
-
+    
     const User = require('../models/user').User;
     User.findById(req.session._id, (error, user)=>{
     

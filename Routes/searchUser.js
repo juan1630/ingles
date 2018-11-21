@@ -47,12 +47,15 @@ router.route("/edit")
     let id = req.body.numero;
 
     User.findOne({numeroControl:id},(error, user)=>{
-        if(error) console.log(error)
-
+        if(error) res.redirect("admin");
+        
+       if(user === null){
+           res.redirect("/admin");
+       }else{
         const nombre=user.nombre;
         const apellido=user.apellido;
         const semestre = user.semestre;
-         const correo =user.correo;
+        const correo =user.correo;
         const nivel = user.nivel;
         const id =user._id;
         const description = user.description;
@@ -66,6 +69,7 @@ router.route("/edit")
             id,
             description
         });
+       }
 
     })
 
@@ -85,8 +89,6 @@ router.route('/carrera')
 router.route('/carrera/find')
 .post((req, res)=>{
   
-    console.log(req.body.carrera);
-
     let carr =req.body.carrera;
 
     User.find({carrera:carr}, (error, docs)=>{
@@ -142,7 +144,7 @@ router.route('/semestre/find')
     let num = req.body.numero;
       User.findOne({ numeroControl:num }, (erro,data)=>{
           if(erro){
-              console.log(erro)
+             res.redirect("/grupo");
            }
 
           let id = data.id;

@@ -7,7 +7,7 @@
  * ========================
  */
 
- const PORT = process.env.PORT || 3000;
+ const PORT = process.env.PORT || 3001;
  
 /**
  * ========================
@@ -18,17 +18,9 @@
  */
 
 
-process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
-
-/**
- * ========================
- * 
- * CONFIG DB
- * 
- * ========================
- */
 
      URI = "mongodb://juanDev:sistemas-2018@ds151393.mlab.com:51393/ingles";
+    // URI = "mongodb://localhost/ingles";
 
 module.exports = {
    PORT,

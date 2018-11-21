@@ -10,7 +10,7 @@ const PDF = require('../models/pdfs');
         return false;
     }
     const doc = new pdfKit();
-    doc.pipe(fs.createWriteStream(`pdf/${data.id}.pdf`));
+    doc.pipe(fs.createWriteStream(`./pdf/${data.id}.pdf`));
 
     doc.text(`Se otorga el presente RECONOCIMIENTO al alumno: ${data.nombre}`,{width:410,aling:"center"});
     doc.end();

@@ -22,10 +22,12 @@ html(lang='es')
     section.container
       article.row
         .col-sm-12.col-md-12
-          h1.title= `Bienvenido ${nombre}`
+          if nombre == undefined
+            h1.title= `Bienvenido todo listo para que inicies tu cruso`
+          else
+            h1.title= `Bienvenido ${nombre}`   
           if status == "false"
             h2.title=  `Tu estado es: activo `
           else 
-          
             h2.title=  `Tu estado es: inactivo`
             p.center Realiza tu pago para poder tomar inglés

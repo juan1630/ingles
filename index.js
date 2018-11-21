@@ -1,5 +1,6 @@
 const express = require('express');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+
 const path = require('path');
 const User = require('./models/user').User;
 const auth = require('./middleware/userMiddleware');
@@ -10,7 +11,8 @@ const {generatePdf} = require('./PdfService/index');
 const session =require('express-session');
 const methodOverride = require('method-override');
 
-
+const bcrypt= require('bcrypt');
+//const validate = require('./loginService/index');
 const app = express();
 
 const  search  = require('./Routes/searchUser');
@@ -59,7 +61,7 @@ app.post('/crear', (req ,res)=>{
         carrera:req.body.carrera,
         semestre:req.body.semestre,
         correo:req.body.email,
-        pass:req.body.pass
+        pass: bcrypt.hashSync(req.body.pass, 10)
     
     }
     
@@ -80,34 +82,55 @@ app.post("/login", (req, res)=>{
     let correoE = req.body.email;
     let contra = req.body.password;
 
-    User.findOne({correo:correoE, pass:contra}, (error, user) => {
+        
+    User.findOne({correo:correoE}, (error, user) => {
+        
+        if(error){
+            res.redirect("/login");
+        }
+       // console.log(user)
+        if(user){
+           bcrypt.compare(contra, user.pass)
+           .then((resp)=>{
+              
+              if(resp == true ){
+              
+                if(user.role === "usuario" ){
+                    console.log(user)
+                    req.session._id=user._id;
+                    req.session.nombre= user.nombre;
+                    req.session.role=user.role;
+                    req.session.nivel=user.nivel;
+                    
+                    res.redirect("/user");
 
-            if (error) res.redirect("/login")
+                }else if(user.role === "admin"){
+                   
+                    req.session._id=user._id;
+                    req.session.nombre= user.nombre;
+                    req.session.role=user.role;
+                    req.session.nivel=user.nivel;
+                    
+                    res.redirect("/admin");
+               }else{
+                res.redirect("/login");
+            }
             
-             if(user===null || user === undefined){
-                 res.redirect("/login");                 
-             }else if(user.role === undefined){
-                 res.redirect("/login");
-             }else if(user.role === "usuario" ){
-
-                req.session._id=user._id;
-                req.session.nombre= user.nombre;
-                req.session.role=user.role;
-                req.session.nivel=user.nivel;
-                
-                res.redirect("/user");
-
-            }else if(user.role === "admin"){
-                
-                req.session._id=user._id;
-                req.session.nombre=user.nombre;
-                req.session.role=user.role;
-                                
-                res.redirect("/admin")
-                
-                }
+        
+           }
+           if(resp === false){
+               res.redirect("/login");
+           }
+        }).catch((error)=>{
+            if(error){
+                res.redirect("/login");
+            }
+            
         })
-});
+        }
+        
+})
+})
 
 
 
