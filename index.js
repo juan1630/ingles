@@ -6,7 +6,7 @@ const User = require('./models/user').User;
 const auth = require('./middleware/userMiddleware');
 const middleware = require('./middleware/login');
 const auth_2 = require('./middleware/auth');
-const { PORT}= require('./config/mongoConnect');
+const { PORT }= require('./config/mongoConnect');
 const {generatePdf} = require('./PdfService/index');
 const session =require('express-session');
 const methodOverride = require('method-override');
@@ -169,6 +169,9 @@ app.use("/user", user);
  */
 
 
-app.listen(PORT, ()=>{
+app.listen(PORT, (error)=>{
     console.log(`Servidor en el puerto: ${PORT}`);
+    if(error){
+        console.log(error)
+    }
 })
