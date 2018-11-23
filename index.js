@@ -66,7 +66,6 @@ app.post('/crear', (req ,res)=>{
     }
     
     const usuario = new User( user );
-        //console.log(usuario);
         usuario.save((error)=>{
           
             if(error){
@@ -96,7 +95,7 @@ app.post("/login", (req, res)=>{
               if(resp == true ){
               
                 if(user.role === "usuario" ){
-                    console.log(user)
+                   
                     req.session._id=user._id;
                     req.session.nombre= user.nombre;
                     req.session.role=user.role;
@@ -164,10 +163,18 @@ app.use("/user", auth);
 app.use("/user", auth_2);
 app.use("/user", user);
 
+
+
+
+
+
+
+
+
+
 /***
  * SERVIDOR 
  */
-
 
 app.listen(PORT, (error)=>{
     console.log(`Servidor en el puerto: ${PORT}`);

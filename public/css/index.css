@@ -67,6 +67,17 @@ margin-top: 30px;
 line-height: 29px;
 }
 
+.state{
+    padding: 0 0 0.5em 0; 
+}
+
+.disable{
+    width:100px ;
+    height:100px;
+    background-color:#8C8C8C;
+ 
+}
+
 @media(max-width:770px){
     .itc, .tecnm{
         display: none;

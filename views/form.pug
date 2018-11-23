@@ -31,15 +31,15 @@ html(lang='en')
               .form-group
                 form.form(action='/crear', method='POST', name='formulario')
                   .form-group
-                    input#name.form-control(type='text', name='name', placeholder='Ingresa tu Nombre', required='')
+                    input#name.form-control(type='text', name='name', placeholder='Ingresa tu nombre', required='')
                     input#apellido.form-control(type='text', name='apellido', placeholder='Ingresa tus apellidos', required='')
-                    input#num.form-control(type='text', name='num', placeholder='Ingresa tu número de Control', required='', maxlength="8" minlength="6")
+                    input#num.form-control(type='text', name='num', placeholder='Ingresa tu número de control', required='', maxlength="8" minlength="6")
                   .form-group
                     input#carrera.form-control(type='text', name='carrera', placeholder='Ingresa tu carrera', required='')
                     input#semestre.form-control(type='number',min="1", name='semestre', placeholder='Semestre', required='')
                     input#email.form-control(type='email', name='email', placeholder='Agrega tu email', required='')
                   .form-group
-                    input#pass.form-control(type='password', name='pass', placeholder='Agrega tu contraseña', required='')
+                    input#pass.form-control(type='password', name='pass', placeholder='Agrega tu contraseña', required='', minlength=8)
                   .form-group.group-btn
                     input#btn.btn.btn-info(type='submit', value='Registrar')
                     a(href="/login").link Inicia sesión

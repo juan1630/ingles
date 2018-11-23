@@ -23,11 +23,13 @@ html(lang='es')
       article.row
         .col-sm-12.col-md-12
           if nombre == undefined
-            h1.title= `Bienvenido todo listo para que inicies tu cruso`
+            h1.title= `Bienvenido todo listo para que inicies tu curso`
           else
             h1.title= `Bienvenido ${nombre}`   
           if status == "false"
-            h2.title=  `Tu estado es: activo `
+            h2.state.title=  `Tú estado es: activo `
+            
           else 
-            h2.title=  `Tu estado es: inactivo`
-            p.center Realiza tu pago para poder tomar inglés
+            h2.state.title=  `Tú estado es: inactivo`
+            p.center Realiza tú pago para poder cursar inglés
+                       
