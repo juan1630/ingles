@@ -53,18 +53,33 @@ app.get('/login', (req, res)=>{
 
 app.post('/crear', (req ,res)=>{
    
-    const user ={
+    
  
-        nombre:req.body.name,
-        apellido:req.body.apellido,
-        numeroControl:req.body.num,
-        carrera:req.body.carrera,
-        semestre:req.body.semestre,
-        correo:req.body.email,
-        pass: bcrypt.hashSync(req.body.pass, 10)
+        var nombre =req.body.name;
+        var  apellido= req.body.apellido;
+        var numeroControl=req.body.num;
+        var  carrera=req.body.carrera;
+        var semestre=req.body.semestre;
+        var correo=req.body.email;
+        var pass= bcrypt.hashSync(req.body.pass, 10)
     
+
+
+        var Nom =nombre.toLowerCase();
+        var ape=apellido.toLowerCase();
+        var car=carrera.toLowerCase();
+       
+        
+    let user ={
+        nombre:Nom,
+        apellido:ape,
+         numeroControl,
+        carrera:car,
+        semestre:semestre,
+        correo:correo,
+        pass:pass
     }
-    
+
     const usuario = new User( user );
         usuario.save((error)=>{
           
