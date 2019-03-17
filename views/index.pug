@@ -4,26 +4,45 @@ block nav
       article.container
         .row
           .col-sm-12.col-md-12
-            h1.center.title
-              | Curso de Inglés
+            h1.center.title.fontPer
+              | Coordinación de Lenguas Extranjeras ITCuautla
+      .main
+        #carouselExampleIndicators.carousel.slide(data-ride='carousel')
+          ol.carousel-indicators
+            li.active(data-target='#carouselExampleIndicators', data-slide-to='0')
+            li(data-target='#carouselExampleIndicators', data-slide-to='1')
+            li(data-target='#carouselExampleIndicators', data-slide-to='2')
+          .carousel-inner
+            .carousel-item.active
+              img.d-block.w-100(src='./image/banner.jpg', alt='Convocatoria')
+            .carousel-item
+              img.d-block.w-100(src='./image/banner2.jpg', alt='...')
+            .carousel-item
+              img.d-block.w-100(src='./image/banner3.jpg', alt='...')
+            a.carousel-control-prev(href='#carouselExampleIndicators', role='button', data-slide='prev')
+              span.carousel-control-prev-icon(aria-hidden='true')
+              span.sr-only Previous
+            a.carousel-control-next(href='#carouselExampleIndicators', role='button', data-slide='next')
+              span.carousel-control-next-icon(aria-hidden='true')
+              span.sr-only Next
     footer.footer
       .container
         .row
           .col-sm-12.col-md-4
             .card
               .card-body
-                h4.card-title Horario de atención
-                p.card-text De lunes a viernes de 10:00 a 15:00 y de 16:00 a 18:00 hrs
-                p Sábado de 9:00 a 13:00 hrs
+                h4.card-title.fontPer Horario de atención
+                p.card-text.fontPer De lunes a viernes de 10:00 a 15:00 y de 16:00 a 18:00 hrs
+                p.fontPer Sábado de 9:00 a 13:00 hrs
           .col-sm-12.col-md-4
             .card
               .card-body
-                h4.card-title.card-phone Número de contacto
-                p.card-phone.phone  Tel. 7351282454 
+                h4.card-title.card-phone.fontPer Número de contacto
+                p.card-phone.phone.fontPer  Tel. 7351282454 
                   i.fab.fa-whatsapp
           .col-sm-12.col-md-4
             .card
               .card-body
-                h4.card-title Correo electrónico        
-                p.parrafo Correo: coord.ingles@itcuautla.edu.mx
-                 
+                h4.card-title.fontPer Correo electrónico        
+                p.parrafo.fontPer Correo: coord.ingles@itcuautla.edu.mx 
+                
